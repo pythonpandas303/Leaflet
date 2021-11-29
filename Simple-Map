@@ -1,0 +1,42 @@
+<!--TL Leaflet Example-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ultimate Fighting Showcase</title>
+<meta charset="utf-8" />
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+</head>
+<body>
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+  <center><div id="map" style="width: 1200px; height: 800px"></div></center>
+<script>
+var map = L.map('map').setView([26.561832, -78.655003], 10);
+mapLink =
+'<a href="http://openstreetmap.org">OpenStreetMap</a>';
+L.tileLayer(
+'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: '&copy; ' + mapLink + ' Contributors',
+maxZoom: 18,
+}).addTo(map)
+var p1 = L.marker([26.543837, -78.675758],
+                      {title: 'Ultimate Fighting Showcase'}).addTo(map)
+var p2 = L.marker([26.511364, -78.756031],
+                         {title: 'Fighter Lodging'}).addTo(map)
+var p3 = L.circle([26.555558, -78.577320], 
+                  {color: 'blue', fillColor: '#2E9AFE', fillOpacity: 0.5, radius: 2000}).addTo(map)
+var p4 = L.polygon([[26.623714, -78.508999],
+                   [26.647958, -78.513210],
+                   [26.651640, -78.487380],
+                   [26.620644, -78.482150]],
+                   {color: 'red', fillColor: '#FE2E64', fillOpacity: 0.5}).addTo(map)
+p1.bindPopup("<h2>Ultimate Fighting Showcase</h2><br><h3>Location: Grand Bahama Sports Complex</h3><br><h3>Date: February 15th, 2021</h3><br><a href= 'https://www.facebook.com/sportsgrandbahama' target='_blank' rel='noopener noreferrer'><b>Link</b></a>").openPopup() 
+p2.bindPopup("<h2>Fighter Lodging</h2><br><h3>Location: Sea Breeze Villas; #2 Port of Call Dr, Freeport, Bahamas</h3><br><a href= 'https://www.seabreezevacationvillas.com' target='_blank' rel='noopener noreferrer'><b>Link</b></a>").openPopup()
+p3.bindPopup("<h2>Dining Options Found Here</h2>").openPopup()
+p4.bindPopup("<h2>Possible Locations for New Arena</h2>").openPopup('click')
+</script>
+</body>
+</html>
